@@ -119,7 +119,7 @@ var PlayersService = function(endpointUri, callback){
       var endpointUri = "http://api.cbssports.com/fantasy/players/list?version=3.0&SPORT=football&response_format=json";
       var apiUrl = url + encodeURIComponent(endpointUri);
     
-        $.getJSON(endpointUri, function(data){
+        $.getJSON(apiUrl, function(data){
           playersData = data.body.players;
           console.log('Player Data Ready')
           console.log('Writing Player Data to localStorage')
@@ -132,7 +132,7 @@ loadPlayersData(); //call the function above every time we create a new service
 } 
 ```
 
-And there you have it. A basic, easy to use Players Service. To make it work, we will go back to our main app.js and instantiate the PlayerService. The PlayerService is going out to make an async call, and we will want to make sure our page shows some sort of loader while we are waiting for the data to load. To accomplish this task we can setup a simple bool for loading and then flip that bool once the ready function is called by our player service.
+And there you have it. A basic, easy to use Players Service. To make it work, we will go back to our main controller and instantiate the PlayerService. The PlayerService is going out to make an async call, and we will want to make sure our page shows some sort of loader while we are waiting for the data to load. To accomplish this task we can setup a simple bool for loading and then flip that bool once the ready function is called by our player service.
 
 ```javascript
 var loading = true; //Start the spinner
