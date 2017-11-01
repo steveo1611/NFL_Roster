@@ -1,5 +1,5 @@
 ---
-#Players Service & Encapsulation
+# Players Service & Encapsulation
 ---
 
 We have already briefly talked about one of the three pillars of object oriented programming, Encapsulation.
@@ -178,7 +178,7 @@ Good luck, and Happy Coding.
   - Only one player of each position
 ---
 
-#Array.Filter
+# Array.Filter
 ---
 In its simplest form, Array.filter is a way to filter a large array intto a smaller array. 
 
