@@ -65,17 +65,14 @@ var PlayersService = function(){
   var playersData = [];
   
   this.getPlayersByTeam = function(teamName){
-    playersData.filter(function(player){
+    return playersData.filter(function(player){
       if(player.team == teamName){
         return true;
     });
   }
   
   this.getPlayersByPosition = function(position){
-    playersData.filter(function(player){
-      if(player.position == position){
-        return true;
-    });
+    //return an array of all players who match the given position.
   }
 } 
 ```
@@ -88,17 +85,11 @@ var PlayersService = function(endpointUri, callback){
     var playersData = [];
     
     this.getPlayersByTeam = function(teamName){
-    	playersData.filter(function(player){
-    	  if(player.team == teamName){
-    	    return true;
-    	});
+    	// ...
     }
     
     this.getPlayersByPosition = function(position){
-        playersData.filter(function(player){
-          if(player.position == position){
-            return true;
-        });
+      // ...
     }
     
     function loadPlayersData(){
