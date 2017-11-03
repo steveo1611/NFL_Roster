@@ -36,7 +36,7 @@ Lets call it PlayersService.
 
 PlayersService is just a constructor.
 ```javascript
-  var PlayersService = function(){
+ function PlayersService(){
     //...
   } 
 ```
@@ -44,7 +44,7 @@ PlayersService is just a constructor.
 Looking back at our proof of concept, we know our service needs to have player data, and a few functions. Let's put a few examples in just to get the ball rolling. We will eventually want to sort players somehow so adding in the ability to do this by team and by position might be a good start.
 
 ```javascript
-var PlayersService = function(){
+function PlayersService(callback){
   var playersData = [];
   
   this.getPlayersByTeam = function(teamName){
@@ -61,13 +61,14 @@ Once we have the skeleton laid out, we can implement the functionality.
 We will use a new method called <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter" target="_blank">.filter()</a>. Check out that link, and the additional content below for more details on filter.
 
 ```javascript
-var PlayersService = function(){
+function PlayersService(callback){
   var playersData = [];
   
   this.getPlayersByTeam = function(teamName){
     return playersData.filter(function(player){
       if(player.team == teamName){
         return true;
+      }
     });
   }
   
@@ -81,8 +82,7 @@ Now we just need to write the function to get the player data from the API. And 
 that function every time we create a new Players Service.
 
 ```javascript
-var PlayersService = function(callback){
-    var endpointUri = "http://api.cbssports.com/fantasy/players/list?version=3.0&SPORT=football&response_format=json";
+function PlayersService(callback){
     var playersData = [];
     
     this.getPlayersByTeam = function(teamName){
