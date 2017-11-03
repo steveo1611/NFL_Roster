@@ -81,7 +81,8 @@ Now we just need to write the function to get the player data from the API. And 
 that function every time we create a new Players Service.
 
 ```javascript
-var PlayersService = function(endpointUri, callback){
+var PlayersService = function(callback){
+    var endpointUri = "http://api.cbssports.com/fantasy/players/list?version=3.0&SPORT=football&response_format=json";
     var playersData = [];
     
     this.getPlayersByTeam = function(teamName){
@@ -127,8 +128,7 @@ And there you have it. A basic, easy to use Players Service. To make it work, we
 
 ```javascript
 var loading = true; //Start the spinner
-var apiUrl = "http://api.cbssports.com/fantasy/players/list?version=3.0&SPORT=football&response_format=json";
-var playerService = new PlayerService(apiUrl, ready);
+var playerService = new PlayerService(ready);
 
 function ready(){
     loading = false; //stop the spinner
@@ -153,17 +153,20 @@ Once it is all set up feel free to re-integrate adding players, adding and remov
 Good luck, and Happy Coding.
 
 
-### Points `Total Points: 30`
+## REQUIREMENTS
 
- - `5` Utilizes a PlayerService & PlayerController
- - `5` Players can be filtered by Team
- - `5` Players can be filtered by Position
- - `5` Players can be filtered by Name
- - `5` Players can be added and removed from user team
- - `5` User team data is persistent
+ ##### Functionality
+  - Utilizes a PlayerService & PlayerController
+  - Players can be added and removed from user team
+  
+ ##### Visualization
+  - Players can be filtered by Team
+  - Players can be filtered by Position
+  - Players can be filtered by Name
+ 
 
 
-### Bonus (1pt each)
+### Bonus Challenges
   - Only one instance of a player on the team is allowed
   - Teams have a max size 
   - Only one player of each position
