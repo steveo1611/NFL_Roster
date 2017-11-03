@@ -165,8 +165,8 @@ Good luck, and Happy Coding.
   - Players can be filtered by Name
  
 
-
-### Bonus Challenges
+---
+##### Bonus Challenges
   - Only one instance of a player on the team is allowed
   - Teams have a max size 
   - Only one player of each position
