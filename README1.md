@@ -12,7 +12,7 @@ For this project we will be creating a dynamic roster where you can add/remove p
 ### Step 1 - Project Setup
 
 1. Create a repository for my-roster.
-2. Create the index.html, app.js, and styles.css files.
+2. Create the index.html, app.js, player-controller.js, player-service.js and styles.css files.
 3. Link the app.js and styles.css into index.html
 4. Lastly add your links for Bootstrap and jQuery into index.html
 
