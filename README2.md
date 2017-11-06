@@ -30,7 +30,7 @@ Now let's discuss how we are going to get player data from the CBS API and how w
       - getPlayersByPosition(position);
         - this method receives a player's position and returns an array of all players with that position.
     - Each function relies on the data retrieved from the external source.  
- 
+  - Add players to a user team array and render that team to the page 
 Because every item in our proof of concept is similar in behavior, we will want to place everything inside a common unit. 
 Lets call it PlayersService. 
 
@@ -141,6 +141,8 @@ function ready(){
 }
     
 ```
+
+Now its up to you to write all the functionality of adding each of these players to your 'fantasy' team.
 
 Before you are turned loose there are a few things you will want to know about this API. First, it will give you back a ton of data, and not all of it comes how you would expect, nor is all of it usable. Since this is coming from a fantasy football API each team will have "players" that aren't actual people. 
 
