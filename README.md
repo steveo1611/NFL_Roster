@@ -161,12 +161,12 @@ Good luck, and Happy Coding.
 
 ## REQUIREMENTS
 
-##### Functionality
+#### Functionality
 
 -   Utilizes a PlayerService & PlayerController
 -   Players can be added and removed from user team
     
-    ##### Visualization
+#### Visualization
     
 -   Players can be filtered by Team
     
