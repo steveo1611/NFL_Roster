@@ -89,6 +89,8 @@ Notice that `getPlayersByTeam` returns the results of the filter, because of thi
 
 Now we just need to write the function to get the player data from the API. And call that function every time we create a new Players Service.
 
+**go ahead and copy this one directly into your own PlayersService**
+
 ```javascript
 function PlayersService(callback){
    var playersData = []
