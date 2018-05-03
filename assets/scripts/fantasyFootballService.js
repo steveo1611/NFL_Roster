@@ -37,9 +37,14 @@ function PlayersService(callback){
 
 //public
 
+this.getPlayerByTeam = function(teamName){
 
+}
 
+this.getPlayerByPosition = function(position){
 
+    
+}
 
 
 
