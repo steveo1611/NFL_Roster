@@ -1,18 +1,17 @@
-//function FantasyFootballService() {
-
-  function PlayersService(callback) {
+function FantasyFootballService(callback) {
+    
     var playersData = []
+    var teamData = []
 
     function loadPlayersData() {
-      debugger
-      //check if the player already has a copy of the NFL playersData
+        //check if the player already has a copy of the NFL playersData
       var localData = localStorage.getItem('playersData');
       //if they do, pull from there
       if (localData) {
         playersData = JSON.parse(localData);
         //return will short-circuit the loadPlayersData function
         //this will prevent the code below from ever executing
-        return callback()
+        return callback(playersData)
       }
       //if not go get that data
       var url = "https://bcw-getter.herokuapp.com/?url=";
@@ -25,13 +24,11 @@
         console.log('Writing Player Data to localStorage')
         localStorage.setItem('playersData', JSON.stringify(playersData))
         console.log('Finished Writing Player Data to localStorage')
-        callback()
+        callback(playersData)
       });
     }
 
-    // this.getPlayers = function getPlayers(){
-    //   return playersData
-    // }
+  
 
     this.getPlayersByTeam = function(teamName){
       return playersData.filter(function(player){
@@ -48,12 +45,13 @@
       });
     }
 
+    this.getTeam = function(){
+      return teamData
+    }
 
-
-
-   // loadPlayersData(); //call the function above every time we create a new service
-  }
-
+  loadPlayersData();
+  
+}
 
 
 

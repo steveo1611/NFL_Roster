@@ -1,5 +1,5 @@
 var app = {
     controllers: {
-        fantasyFootballController: new FantasyFootballController()
+        fFootballController: new FantasyFootballController()
     }
 }

@@ -1,26 +1,44 @@
 function FantasyFootballController(){
 
-//    var fantasyFootballService = new FantasyFootballService()
-    var playersService = new PlayersService()
+   var fFS = new FantasyFootballService(drawPlayers)
 
-//playersService.getPlayers
-
-function drawPlayer(results){
+function drawPlayers(players){
     var template = ``
-    for (let i = 0; i < results.length; i++){
-      var player = results[i]
+    for (let i = 0; i < players.length; i++){
+      var player = players[i]
      template +=`
-     <img src="//placehold.it/200x150" alt="">
-     <h2>NAME: ${player.name}nobody</h2>
-     <p>Position: qa</p>
-     <p>Team: SF</p>
+     <img src="${player.photo}" alt="">
+     <h2>NAME: ${player.fullname}</h2>
+     <p>Position: ${player.position}</p>
+     <p>Team: ${player.pro_team} </p>
  </div>
     
      `
     }
-    document.getElementById('playerlist').innerHTML = template
-    console.log(results)
-      }
-debugger
-      drawPlayer(playersService.getPlayersByTeam('SF'))
-    }
+     document.getElementById('playerlist').innerHTML = template
+    console.log(players)
+       }
+function drawTeam(team){
+   var team = getTeam()
+   var template = ``
+   for (let i = 0; i < team.length; i++){
+       var daTeam = team[i]
+       template +=`
+       <img src="${team.photo}" alt="">
+     <h2>NAME: ${team.fullname}</h2>
+     <p>Position: ${team.position}</p>
+     <p>Team: ${team.pro_team} </p>
+ </div>
+       
+       `
+   }
+   document.getElementById('teamList').innerHTML = template
+}
+
+
+
+
+
+
+
+    }  //end
