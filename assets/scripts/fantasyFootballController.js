@@ -1,38 +1,63 @@
-function FantasyFootballController(){
+function FantasyFootballController() {
 
-   var fFS = new FantasyFootballService(drawPlayers)
-
-function drawPlayers(players){
-    var template = ``
-    for (let i = 0; i < players.length; i++){
-      var player = players[i]
-     template +=`
-     <img src="${player.photo}" alt="">
-     <h2>NAME: ${player.fullname}</h2>
-     <p>Position: ${player.position}</p>
-     <p>Team: ${player.pro_team} </p>
- </div>
+    var fFS = new FantasyFootballService(drawPlayers)
     
-     `
-    }
-     document.getElementById('playerlist').innerHTML = template
-    console.log(players)
-       }
-function drawTeam(team){
-   var team = getTeam()
-   var template = ``
-   for (let i = 0; i < team.length; i++){
-       var daTeam = team[i]
-       template +=`
-       <img src="${team.photo}" alt="">
-     <h2>NAME: ${team.fullname}</h2>
-     <p>Position: ${team.position}</p>
-     <p>Team: ${team.pro_team} </p>
- </div>
-       
+    function drawTeam(team) {
+        var team = getTeam()
+        var template = ``
+        for (let i = 0; i < team.length; i++) {
+            var daTeam = team[i]
+            template += `
+            <div class="col-sm-3 my-3">
+            <div class="card bg-dark text-white w-100 h-100">
+                <img class="card-img-top" src="${daTeam.photo}" alt="">
+                <div class="card-img-overlay">
+                    <h2 class="card-body">NAME: ${daTeam.fullname}</h2>
+                    <p class="card-text">Position: ${daTeam.position}</p>
+                    <p class+ "card-text">Team: ${daTeam.pro_team} </p>
+                    <button onclick=''>remove from team</button>
+                </div>
+            </div>
+           </div>
+        
        `
-   }
-   document.getElementById('teamList').innerHTML = template
+        }
+        document.getElementById('teamList').innerHTML = template
+    }
+    
+    function drawPlayers(players) {
+        var template = ``
+        for (let i = 0; i < players.length; i++) {
+            var player = players[i]
+            template += `
+            <div class="col-sm-3 my-3">
+            <div class="card bg-dark text-white w-100 h-100">
+                <img class="card-img-top" src="${player.photo}" alt="">
+                <div class="card-img-overlay">
+                    <h2 class="card-body">NAME: ${player.fullname}</h2>
+                    <p class="card-text">Position: ${player.position}</p>
+                    <p class="card-text">Team: ${player.pro_team} </p>
+                    <button onclick=''>add to team</button>
+                </div>
+            </div>
+        </div>
+        
+     `
+        }
+        document.getElementById('playerlist').innerHTML = template
+//        console.log(players)
+    }
+
+this.getByTeam = function getByTeam(e, cb){
+    e.preventDefault();
+//debugger
+   var val = document.getElementById("inputTeamSelect");
+   var team = val.options[val.selectedIndex].value;
+    //var team = e.target.value;
+  fFS.getPlayersByTeam(team, cb)
+  cb(drawPlayers)
+   //.then(drawPlayers());
+    //drawPlayers(list)
 }
 
 
@@ -40,5 +65,4 @@ function drawTeam(team){
 
 
 
-
-    }  //end
+}  //end

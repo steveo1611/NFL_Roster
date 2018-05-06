@@ -36,7 +36,8 @@ function FantasyFootballService(callback) {
           return true;
         }
       });
-    }, 
+    } 
+   
     this.getPlayersByPos = function(position){
       return playersData.filter(function(player){
         if(player.position == position){

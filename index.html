@@ -15,40 +15,101 @@
 
     <!-- Vision for team listing : one QB on one line /next line;  2 RB 2 WR 1 TE : next line kicker : next line D/ST  -->
     <section name="team">
-        <div name="container" id="teamList">
+        <div name="container">
             <div class="row">
                 <div class="col">
                     <h1>Team List:</h1>
-                <img src="//placehold.it/200x150" alt="">
-                <h2>NAME: Russ Willy</h2>
-                <p>Position: qa</p>
-                <p>Team: sea</p>
-            </div>
+                    <div id="teamList">
+                        <img src="//placehold.it/200x150" alt="">
+                        <h2>NAME: Russ Willy</h2>
+                        <p>Position: qa</p>
+                        <p>Team: sea</p>
+                    </div>
+                </div>
             </div>
         </div>
+<div name="container">
+<div name="row">
+    <div class="col">
+        <div class="input-group">
+        <select class="custom-select" id="inputTeamSelect">
+            <option selected>Choose...</option>
+            <option value="ARI">Cards</option>
+            <option value="ATL">Falcons</option>
+            <option value="BAL">Ravens</option>
+            <option value="BUF">Bills</option>
+            <option value="CAR">Panthers</option>
+            <option value="CHI">DA Bears</option>
+            <option value="CLE">Browns</option>
+            <option value="DAL">Cowboys</option>
+            <option value="DEN">Broncos</option>
+            <option value="DET">Lions</option>
+            <option value="GB">Packers</option>
+            <option value="HOU">Texans</option>
+            <option value="IND">Colts</option>
+            <option value="JAC">Jags</option>
+            <option value="KC">Chiefs</option>
+            <option value="LAC">Chargers</option>
+            <option value="LAR">Rams</option>
+            <option value="MIA">Dolphins</option>
+            <option value="MIN">Vikings</option>
+            <option value="NE">Pats</option>
+            <option value="NO">Saints</option>
+            <option value="NYG">Giants</option>
+            <option value="NYJ">Da Jets</option>
+            <option value="OAK">Raiders</option>
+            <option value="PHI">Eagles</option>
+            <option value="PIT">Steelers</option>
+            <option value="SEA">SeaHAWKS</option>
+            <option value="SF">49ers</option>
+            <option value="TB">Bucs</option>
+            <option value="TEN">Titans</option>
+            <option value="WAS">Redskins</option>
+            <option value="DRF">Drafted</option>
+            <option value="FA">Free Agent</option>
+        </select>
+        <div class="input-group-append">
+                <button onclick="app.controllers.fFootballController.getByTeam(event)">Search by Team</button>    
+          </div>
+        </div>
+        <div class="input-group">
+<div class="positions">
+    <input type="radio" name="QB" value="">QB<br>
+    <input type="radio" name="RB" value="">RB<br>
+    <input type="radio" name="WR" value="">WR<br>
+    <input type="radio" name="TE" value="">TE<br>
+    <input type="radio" name="K" value="">K<br>
+    <input type="radio" name="DST" value="">Defense/ST<br>
+    <button onclick="" >Search by Position</button>
+</div>
 
-        <div name="container" id="playerlist">
+</div>
+
+
+        </div>
+
+        <button onclick="" >Search by Name</button>
+    </div>
+
+</div>
+
+
+</div>
+        <div name="container players">
             <div class="row">
                 <div class="col">
-                    <h1> Players List</h1>
+                <h1> Players List</h1>
+                <div id="playerlist" class="card-deck">
                     <img src="//placehold.it/200x150" alt="">
                     <h2>NAME: nobody</h2>
                     <p>Position: qa</p>
                     <p>Team: SF</p>
                 </div>
-
             </div>
+          </div>
+        </div>
 
     </section>
-
-
-
-
-    <!-- List of available players on right side - vertically  -->
-
-
-
-
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="assets/scripts/fantasyFootballService.js"></script>
@@ -57,3 +118,5 @@
 </body>
 
 </html>
+
+
