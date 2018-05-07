@@ -28,13 +28,10 @@ function FantasyFootballService(callback) {
       });
     }
 
-  
-
-    this.getPlayersByTeam = function(teamName, cb){
+      this.getPlayersByTeam = function(teamName, cb){
       var teamList = playersData.filter(function(player){
         if(player.pro_team == teamName){
-          console.log("inside=test")
-          return true;
+            return true;
         }
       });
       cb(teamList)
@@ -54,12 +51,23 @@ function FantasyFootballService(callback) {
       return teamData
     }
 
-  loadPlayersData();
-  
+this.getAddToTeam = function(addPlayerId, cb){
+  var addPlayer = playersData.find(function(player){
+    return player.id == addPlayerId
+    })
+  teamData.push(addPlayer)
+  cb(teamData)
+}
+
+this.getFiredFromTeam = function(delPlayerId, cb){
+  debugger
+  var delPlayer = teamData.indexOf(delPlayerId)
+    teamData.splice(delPlayer, 1)
+    cb(teamData)
 }
 
 
 
-
-// needs to keep  overall player array and team array in services section: private data then need public was to access to arrays to allow services access to the data.  I can use the filter method to push the data I need to a different array that will then get pushed to the controller and then to the web page.  they have given me the playerService function that has a callback, this callback is for when waiting on the data to what is done afterwards with that data.  Do I do this is on service or on the controller???????
-// playerservice: **** is this the main service service (top of page or other seperate function)   ******try it as main service....(changed name in the controller top also)
+  loadPlayersData();
+  
+}
