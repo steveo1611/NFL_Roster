@@ -42,7 +42,7 @@ function FantasyFootballController() {
                     <h2 class="card-body">NAME: ${player.fullname}</h2>
                     <p class="card-text">Position: ${player.position}</p>
                     <p class="card-text">Team: ${player.pro_team} </p>
-                    <button onclick="app.controllers.fFootballController.addOnTeam(${player.id})">add to team</button>
+                    <button onclick="app.controllers.fFootballController.checkTeam(${player.id})">add to team</button>
                 </div>
             </div>
         </div>
@@ -67,7 +67,16 @@ this.getByPos = function getByPos(e){
 }
 
 this.addOnTeam = function addOnTeam(id){
+    if (id == 0){
+        alert("Player already selected")
+    }
+else{
     fFS.getAddToTeam(id, drawTeam)
+}}
+
+
+this.checkTeam = function checkTeam(id){
+     fFS.checkTeamForPlayer(id, app.controllers.fFootballController.addOnTeam)
 }
 
 this.removeFromTeam = function removeFromTeam(id){
