@@ -2,6 +2,7 @@ function FantasyFootballController() {
 
     var fFS = new FantasyFootballService(drawPlayers)
     
+    
     function drawTeam(team) {
         var team = getTeam()
         var template = ``
@@ -45,22 +46,21 @@ function FantasyFootballController() {
      `
         }
         document.getElementById('playerlist').innerHTML = template
-//        console.log(players)
     }
 
-this.getByTeam = function getByTeam(e, cb){
+this.getByTeam = function getByTeam(e){
     e.preventDefault();
-//debugger
    var val = document.getElementById("inputTeamSelect");
    var team = val.options[val.selectedIndex].value;
-    //var team = e.target.value;
-  fFS.getPlayersByTeam(team, cb)
-  cb(drawPlayers)
-   //.then(drawPlayers());
-    //drawPlayers(list)
+  fFS.getPlayersByTeam(team,drawPlayers)
 }
 
-
+this.getByPos = function getByPos(e){
+    e.preventDefault();
+   var val = document.getElementById("inputPos");
+   var pos = val.options[val.selectedIndex].value;
+  fFS.getPlayersByPos(pos,drawPlayers)
+}
 
 
 

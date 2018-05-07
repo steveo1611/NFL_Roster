@@ -30,20 +30,24 @@ function FantasyFootballService(callback) {
 
   
 
-    this.getPlayersByTeam = function(teamName){
-      return playersData.filter(function(player){
-        if(player.team == teamName){
+    this.getPlayersByTeam = function(teamName, cb){
+      var teamList = playersData.filter(function(player){
+        if(player.pro_team == teamName){
+          console.log("inside=test")
           return true;
         }
       });
+      cb(teamList)
     } 
    
-    this.getPlayersByPos = function(position){
-      return playersData.filter(function(player){
+    this.getPlayersByPos = function(position, cb){
+      debugger
+      var posList = playersData.filter(function(player){
         if(player.position == position){
           return true;
         }
       });
+       cb(posList)
     }
 
     this.getTeam = function(){
