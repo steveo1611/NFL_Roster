@@ -40,7 +40,6 @@ function FantasyFootballService(callback) {
   this.getPlayersByPos = function (position, cb) {
     var posList = playersData.filter(function (player) {
       if (player.position == position) {
-        debugger
         return true;
       }
     });
@@ -50,11 +49,10 @@ function FantasyFootballService(callback) {
 
   this.getPlayersByName = function(gName, cb) {
     var namesList = playersData.filter(function (player){
-      if (player.fullname== gName){
+      if (player.fullname == gName){
         return true;
       }
     });
-      debugger
        cb(namesList)
 
   }
