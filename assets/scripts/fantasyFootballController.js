@@ -68,10 +68,16 @@ this.getByPos = function getByPos(e){
 }
 
 this.addOnTeam = function addOnTeam(id){
+
     if (id == 0){
         alert("Player already selected")
+        break
     }
-else{
+    else if(id == '0p'){
+     alert("Position already selected")
+    break
+    }
+    else{
     fFS.getAddToTeam(id, drawTeam)
 }}
 

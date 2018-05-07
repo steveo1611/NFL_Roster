@@ -66,9 +66,9 @@ function FantasyFootballService(callback) {
     cb(teamData)
   }
 
-   this.checkTeamForPlayer = function checkTeamForPlayer(playerId, cb) {
+  this.checkTeamForPlayer = function checkTeamForPlayer(playerId, cb) {
     var dupe = false
-    
+
     for (let i = 0; i < teamData.length; i++) {
       const team = teamData[i];
       if (team.id == playerId) {
@@ -85,32 +85,32 @@ function FantasyFootballService(callback) {
 
 
   this.checkTeamForPos = function checkTeamForPos(playerId, cb) {
-    var dupe = false
-    var attemptPos
-    playersData.find(function (playerId){
-      attemptPos = playerId.position
-     // return playerId.position == playerId
-    })
     debugger
-    var teamPos
-    teamData.find(function(attemptPos){
-   teamData.position == attemptPos
-    } )
-  //   x = playerId.position
-  //   for (let i = 0; i < teamData.length; i++) {
-  //     const team = teamData[i];
-  //     if (team.position == playerStat.position) {
-  //       dupe = true
-  //     }
-  //   }
-  //   if (dupe == false) {
-       cb(playerId)
-  //   }
-  //   else {
-  //     cb(0)
-  //   }
+    if (teamData.length == 0) {
+      cb(playerId)}
+      else{
+      var dupe = false
+      var attemptPos
+      playersData.find(function (playerId) {
+        attemptPos = playerId.position
+        // return playerId.position == playerId
+      })
+      //debugger
+      //var teamPos
+      //teamData.find(function (attemptPos){
+      //teamData.position == attemptPos
+      for (let i = 0; i < teamData.length; i++) {
+        const team = teamData[i];
+        if (team.position == attemptPos) {
+          cb('0p')
+           break
+        }else{
+        cb(playerId)
+      }
+    }
   }
-  
+  }
+
 
   this.getFiredFromTeam = function (delPlayerId, cb) {
     var delPlayer = teamData.indexOf(delPlayerId)
