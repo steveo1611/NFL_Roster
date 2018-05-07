@@ -46,6 +46,14 @@ function FantasyFootballService(callback) {
     cb(posList)
   }
 
+  // BUG BUG this needs to be finished:
+  // this.getPlayersByName = function(name, cb) {
+  //   var names = playersData.forEach(function (player){
+  //     if (player.fullname )
+  //     //var n = str.search(/blue/i);
+  //   })
+  // }
+
   this.getTeam = function () {
     return teamData
   }
@@ -60,6 +68,7 @@ function FantasyFootballService(callback) {
 
    this.checkTeamForPlayer = function checkTeamForPlayer(playerId, cb) {
     var dupe = false
+    
     for (let i = 0; i < teamData.length; i++) {
       const team = teamData[i];
       if (team.id == playerId) {
@@ -75,6 +84,33 @@ function FantasyFootballService(callback) {
   }
 
 
+  this.checkTeamForPos = function checkTeamForPos(playerId, cb) {
+    var dupe = false
+    var attemptPos
+    playersData.find(function (playerId){
+      attemptPos = playerId.position
+     // return playerId.position == playerId
+    })
+    debugger
+    var teamPos
+    teamData.find(function(attemptPos){
+   teamData.position == attemptPos
+    } )
+  //   x = playerId.position
+  //   for (let i = 0; i < teamData.length; i++) {
+  //     const team = teamData[i];
+  //     if (team.position == playerStat.position) {
+  //       dupe = true
+  //     }
+  //   }
+  //   if (dupe == false) {
+       cb(playerId)
+  //   }
+  //   else {
+  //     cb(0)
+  //   }
+  }
+  
 
   this.getFiredFromTeam = function (delPlayerId, cb) {
     var delPlayer = teamData.indexOf(delPlayerId)

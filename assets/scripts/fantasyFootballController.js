@@ -4,7 +4,7 @@ function FantasyFootballController() {
     
     
     function drawTeam(team) {
-
+        scrollTo(0,0)
         var template = ``
         for (let i = 0; i < team.length; i++) {
             var daTeam = team[i]
@@ -29,6 +29,7 @@ function FantasyFootballController() {
     
     function drawPlayers(players) {
              var template = ``
+             scrollTo(0,0)
         for (let i = 0; i < players.length; i++) {
             var player = players[i]
             var pp = player.position
@@ -76,7 +77,11 @@ else{
 
 
 this.checkTeam = function checkTeam(id){
-     fFS.checkTeamForPlayer(id, app.controllers.fFootballController.addOnTeam)
+     fFS.checkTeamForPlayer(id, app.controllers.fFootballController.checkPos)
+}
+
+this.checkPos = function checkPos(id){
+    fFS.checkTeamForPos(id, app.controllers.fFootballController.addOnTeam)
 }
 
 this.removeFromTeam = function removeFromTeam(id){
