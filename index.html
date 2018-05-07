@@ -13,7 +13,6 @@
 
 <body>
 
-    <!-- Vision for team listing : one QB on one line /next line;  2 RB 2 WR 1 TE : next line kicker : next line D/ST  -->
     <section name="team">
         <div name="container">
             <div class="row">
@@ -90,16 +89,17 @@
                             <button onclick="app.controllers.fFootballController.getByPos(event)">Search by Position</button>
                         </div>
                     </div>
-
                 </div>
-
-
             </div>
+            <form class="form-inline" onsubmit="app.controllers.fFootballController.getName(event)" id="searchForm">
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="player" placeholder="Search" />
+                        <button type="submit" class="btn btn-primary" id="nameSearch">Search Name</button>
+                    </div>
+                </form>
 
-            <button onclick="">Search by Name</button>
         </div>
-
-        </div>
+        
 
 
         </div>

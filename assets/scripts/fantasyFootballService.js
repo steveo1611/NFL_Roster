@@ -40,19 +40,24 @@ function FantasyFootballService(callback) {
   this.getPlayersByPos = function (position, cb) {
     var posList = playersData.filter(function (player) {
       if (player.position == position) {
+        debugger
         return true;
       }
     });
     cb(posList)
   }
 
-  // BUG BUG this needs to be finished:
-  // this.getPlayersByName = function(name, cb) {
-  //   var names = playersData.forEach(function (player){
-  //     if (player.fullname )
-  //     //var n = str.search(/blue/i);
-  //   })
-  // }
+
+  this.getPlayersByName = function(gName, cb) {
+    var namesList = playersData.filter(function (player){
+      if (player.fullname== gName){
+        return true;
+      }
+    });
+      debugger
+       cb(namesList)
+
+  }
 
   this.getTeam = function () {
     return teamData
@@ -85,30 +90,41 @@ function FantasyFootballService(callback) {
 
 
   this.checkTeamForPos = function checkTeamForPos(playerId, cb) {
-    debugger
+    //debugger
     if (teamData.length == 0) {
-      cb(playerId)}
-      else{
-      var dupe = false
-      var attemptPos
-      playersData.find(function (playerId) {
-        attemptPos = playerId.position
-        // return playerId.position == playerId
-      })
+      cb(playerId)
+    }
+    else {
+      //var dupe = false
+
+      var attemptPos = " "
+      // playersData.find(function(playerId) {
+      //   attemptPos = playerId.position
+      for (let i = 0; i < playersData.length; i++) {
+        const player = playersData[i];
+        if (player.id == playerId) {
+          attemptPos = player.position
+        }
+        //attemptPos = player
+
+      }
+      console.log(attemptPos)
+      // return playerId.position == playerId
+      //})
       //debugger
       //var teamPos
       //teamData.find(function (attemptPos){
       //teamData.position == attemptPos
       for (let i = 0; i < teamData.length; i++) {
         const team = teamData[i];
-        if (team.position == attemptPos) {
+        //debugger
+        if (team.position != attemptPos) {
+          cb(playerId)
+        } else {
           cb('0p')
-           break
-        }else{
-        cb(playerId)
+        }
       }
     }
-  }
   }
 
 

@@ -71,15 +71,16 @@ this.addOnTeam = function addOnTeam(id){
 
     if (id == 0){
         alert("Player already selected")
-        break
+    
     }
     else if(id == '0p'){
      alert("Position already selected")
-    break
+    
     }
     else{
     fFS.getAddToTeam(id, drawTeam)
-}}
+    }
+}
 
 
 this.checkTeam = function checkTeam(id){
@@ -92,6 +93,14 @@ this.checkPos = function checkPos(id){
 
 this.removeFromTeam = function removeFromTeam(id){
     fFS.getFiredFromTeam(id, drawTeam)
+}
+
+this.getName = function getName(e){
+    e.preventDefault();
+    var gName = e.target.player.value.toUpperCase()
+    fFS.getPlayersByName(gName, drawTeam)
+
+
 }
 
 }  //end
