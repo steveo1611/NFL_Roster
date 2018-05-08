@@ -98,7 +98,7 @@ this.removeFromTeam = function removeFromTeam(id){
 this.getName = function getName(e){
     e.preventDefault();
     var gName = e.target.player.value.toUpperCase()
-    fFS.getPlayersByName(gName, drawTeam)
+    fFS.getPlayersByName(gName, drawPlayers)
 
 
 }

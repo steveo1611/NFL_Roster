@@ -49,7 +49,7 @@ function FantasyFootballService(callback) {
 
   this.getPlayersByName = function(gName, cb) {
     var namesList = playersData.filter(function (player){
-      if (player.fullname == gName){
+      if (player.fullname.toUpperCase().includes(gName)){
         return true;
       }
     });
