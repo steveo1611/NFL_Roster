@@ -25,7 +25,7 @@ function FantasyFootballService(callback) {
       localStorage.setItem('playersData', JSON.stringify(playersData))
       console.log('Finished Writing Player Data to localStorage')
       callback(playersData)
-    });
+    })
   }
 
   this.getPlayersByTeam = function (teamName, cb) {
@@ -47,13 +47,13 @@ function FantasyFootballService(callback) {
   }
 
 
-  this.getPlayersByName = function(gName, cb) {
-    var namesList = playersData.filter(function (player){
-      if (player.fullname.toUpperCase().includes(gName)){
+  this.getPlayersByName = function (gName, cb) {
+    var namesList = playersData.filter(function (player) {
+      if (player.fullname.toUpperCase().includes(gName)) {
         return true;
       }
     });
-       cb(namesList)
+    cb(namesList)
 
   }
 
@@ -75,63 +75,37 @@ function FantasyFootballService(callback) {
     for (let i = 0; i < teamData.length; i++) {
       const team = teamData[i];
       if (team.id == playerId) {
-        dupe = true
+        return true
       }
     }
-    if (dupe == false) {
-      cb(playerId)
-    }
-    else {
-      cb(0)
-    }
+    return false
   }
 
 
-  this.checkTeamForPos = function checkTeamForPos(playerId, cb) {
-    //debugger
+  this.checkTeamForPos = function checkTeamForPos(playerId) {
     if (teamData.length == 0) {
-      cb(playerId)
+      return false
     }
     else {
-      //var dupe = false
-
-      var attemptPos = " "
-      // playersData.find(function(playerId) {
-      //   attemptPos = playerId.position
-      for (let i = 0; i < playersData.length; i++) {
-        const player = playersData[i];
-        if (player.id == playerId) {
-          attemptPos = player.position
-        }
-        //attemptPos = player
-
-      }
-      console.log(attemptPos)
-      // return playerId.position == playerId
-      //})
-      //debugger
-      //var teamPos
-      //teamData.find(function (attemptPos){
-      //teamData.position == attemptPos
+      var player = playersData.find(function (player) {
+        return player.id == playerId
+      })
       for (let i = 0; i < teamData.length; i++) {
-        const team = teamData[i];
+        const tPlayer = teamData[i];
         //debugger
-        if (team.position != attemptPos) {
-          cb(playerId)
-        } else {
-          cb('0p')
+        if (tPlayer.position == player.position) {
+          return true
         }
       }
+      return false
     }
   }
-
 
   this.getFiredFromTeam = function (delPlayerId, cb) {
-    var delPlayer = teamData.indexOf(delPlayerId)
+    var delPlayer = teamData.findIndex(teamId => teamId.id==delPlayerId)
     teamData.splice(delPlayer, 1)
     cb(teamData)
   }
-
 
 
   loadPlayersData();

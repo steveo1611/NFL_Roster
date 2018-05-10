@@ -3,3 +3,22 @@ body{
     background-size: cover;
     background-attachment: fixed;
 }
+
+.head{
+    background-color: black;
+    color: white;
+    text-align: center
+
+}
+
+.section{
+color: white;
+background-color: cadetblue
+
+}
+    
+.search{
+    border-style: solid;
+border-color: black;
+
+}
