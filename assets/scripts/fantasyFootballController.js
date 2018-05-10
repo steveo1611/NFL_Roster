@@ -9,7 +9,7 @@ function FantasyFootballController() {
         for (let i = 0; i < team.length; i++) {
             var daTeam = team[i]
             template += `
-            <div class="col-sm-3 my-3">
+            <div class="col-sm-2 my-3">
             <div class="card bg-dark text-white w-100 h-100">
                 <img class="card-img-top" src="${daTeam.photo}" alt="">
                 <div class="card-img-overlay">
@@ -20,7 +20,6 @@ function FantasyFootballController() {
                 </div>
             </div>
            </div>
-        
        `
         }
         document.getElementById('teamList').innerHTML = template
@@ -70,12 +69,8 @@ function FantasyFootballController() {
 
         if (id == 0) {
             alert("Player already selected")
-
         }
-
     }
-
-
 
 this.checkTeam = function checkTeam(id) {
     if (!fFS.checkTeamForPlayer(id) && !fFS.checkTeamForPos(id)) {

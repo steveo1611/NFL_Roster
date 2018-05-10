@@ -7,18 +7,22 @@ body{
 .head{
     background-color: black;
     color: white;
-    text-align: center
-
+    text-align: center;
 }
 
 .section{
 color: white;
-background-color: cadetblue
-
+background-color: cadetblue;
 }
     
 .search{
     border-style: solid;
-border-color: black;
-
+    border-color: black;
+    margin: 2vh;
 }
+
+.choice{
+     margin-left: 3vh;
+     margin-right: 3vh;
+}
+

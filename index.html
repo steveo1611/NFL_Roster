@@ -12,9 +12,9 @@
 </head>
 
 <body>
-<header>
-        <h1 class="head"> FFL Team selection Application</h1>
-</header>
+  <header>
+        <h1 class="head"> FFL Team Selection Application</h1>
+  </header>
     <section>
         <div name="container">
             <div class="row">
@@ -28,18 +28,15 @@
         </div>
         <div name="container">
             <div name="row">
-                <div class="col d-flex flex-row align-items-center search">
-                    <div class="input-group">  <!-- d-flex flex-row align-items-center -->
-
-                            <form class="form-inline" onsubmit="app.controllers.fFootballController.getName(event)" id="searchForm">
+                <div class="col-offset-2 d-flex flex-row align-items-center search">
+                    <div class="input-group"> 
+                            <form class="form-inline choice" onsubmit="app.controllers.fFootballController.getName(event)" id="searchForm">
                                     <div class="form-group">
                                         <input type="text" class="form-control" name="player" placeholder="Search Name:" />
                                         <button type="submit" class="btn btn-primary" id="nameSearch">Search Name</button>
                                     </div>
                                 </form>
-
-                        <!-- <div class="col-sm-4"> -->
-                            <form class="form-inline">
+                            <form class="form-inline choice">
                             <select class="custom-select" id="inputTeamSelect">
                                 <option selected>Choose a team...</option>
                                 <option value="ARI">Cards</option>
@@ -76,14 +73,9 @@
                                 <option value="DRF">Drafted</option>
                                 <option value="FA">Free Agent</option>
                             </select>
-                            <!-- <div class="input-group-append"> -->
-                                <button onclick="app.controllers.fFootballController.getByTeam(event)">Search by Team</button>
-                            <!-- </div> -->
+                                <button class="btn btn-primary" onclick="app.controllers.fFootballController.getByTeam(event)">Search by Team</button>
                           </form>
-                        <!-- </div> -->
-                          <!-- <div class="col-sm-4"> -->
-                                <form class="form-inline">
-                                    <!-- <div class="form-inline"> -->
+                                <form class="form-inline choice">
                             <select class="custom-select" id="inputPos">
                                 <option selected>Choose a position...</option>
                                 <option value="QB">QB</option>
@@ -93,23 +85,11 @@
                                 <option value="K">Kicker</option>
                                 <option value="DST">Defense/SpecialTeams</option>
                             </select>
-                            <!-- <div class="input-group-append"> -->
-                                <button onclick="app.controllers.fFootballController.getByPos(event)">Search by Position</button>
-                            <!-- </div> -->
-                        <!-- </div> -->
+                                <button class="btn btn-primary" onclick="app.controllers.fFootballController.getByPos(event)">Search by Position</button>
                           </form>
-                        <!-- </div> -->
-                    
-          
                     </div>
                 </div>
             </div>
-
-
-        </div>
-
-
-
         </div>
         <div name="container players">
             <div class="row">
@@ -120,7 +100,6 @@
                 </div>
             </div>
         </div>
-
     </section>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
